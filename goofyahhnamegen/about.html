@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>About</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <script src="fengari-web.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+
+            <nav>
+                <a href="/goofyahhnamegen/namegen.html">Goofy ahh name generator</a>
+                <a href="/goofyahhnamegen/about.html">How I made this</a>
+                <a href="https://github.com/zzraawashere">My GitHub</a>
+                
+              </nav>
+
+              <h1>
+                About
+              </h1>
+
+
+        </header>
+        <h1>How did I make this?</h1>
+        <section>
+            <h2>
+                Functionality:
+            </h2>
+            <article>
+                
+
+                <p>
+                    This little demo was made using <a href="https://fengari.io">fengari</a>. I originally had made this name generator in lua, and ran it in the terminal, but I thought it would be cool if I gave it a little UI. The problem: Lua doesn't natively run on webpages.
+                    The solution: fengari. fengari allows me, and other <a href="https://lua.org">lua</a> users to run lua in browsers with only one line of code.
+                    With the fengari script in place, all I have to do is adapt my old code a little to be compatible with JavaScript. 
+                    Here is the name generation lua script in this website:
+                    <pre>
+                        <code>
+local js = require "js"
+local output = js.global.document:getElementById('output');
+local copyright = js.global.document:getElementById('copyright');
+local generateButton = js.global.document:getElementById('generate');
+
+                            
+local first = {"Quandale", "Bonerbeater", "Tickletipson", "Albert", "Goofingtion", "Quandalius", "Goofy goober", "Juandale", "Juantavious", "Jamarius", "Uncle", "Doodoosniff", "Martin Luther"}
+local middle = {"Dingleberry", "Wrigleworm", "Jonathan", "Fingernoodle", "Scratchensniff", "Trippledickson", "Cornelius", "Bugglesmith", "Big Johnson", "Squintillion"}
+local last = {"The third", "Footlicker", "Dookey", "Bingleton", "Bugfucker", "Madienchaser", "Clitsniffer", "Cochiekisser"," Winkledink", "Meatbeater", "Pringleton", "Dicksmith", "Ballbeater", "Tittylicker", "Sexmaster"}
+
+function randomItem(t)
+    return t[math.random(1,#t)];
+end
+
+function generateName()
+    output.innerText = table.concat({ randomItem(first), randomItem(middle), randomItem(last) }, " ")
+end
+
+function generateButton:onclick(e)
+    generateName();
+end
+
+
+generateName();
+copyright.innerText = table.concat({ randomItem(first), randomItem(middle), randomItem(last) }, " ")
+                        </code>
+                    </pre>
+                    I know, pretty painless, right?
+
+                    
+                </p>
+
+            </article>
+        </section>
+
+        <section>
+
+            <h2>
+                Looks:
+            </h2>
+            <article>
+                <p>
+                    Any web developer knows that CSS can be one of the hardest parts of web development. Without any css on this website, it would look like utter dogshit. Since I 
+                    barley know any HTML, and no CSS, I had to find an easy CSS framework, to make this demo look acceptable. I did a quick google search and ultimately landed on <a href="https://simplecss.org">Simple.css</a>. 
+                    Simple is exactly what the name suggests, a fast, good looking framework with no bs. It's literally drag and drop. I added this:
+                    <pre>
+                        <code>
+< link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" >
+                        </code>
+                    </pre>
+                    one line of code to my head tag, and my site instantly looked 500% better. I highly recommend you check them out for any quick projects that you don't have to to spend hours
+                    writing css for it.
+                </p>
+            </article>
+
+        </section>
+
+        <section>
+            <h2>
+                Inspiration:
+            </h2>
+            <article>
+                <p>
+                    This demo is not a totally original idea, I got the idea from <a href="https://tetzfiles.com/temp/insultgenerator/lua.html">this</a> site
+                </p>
+            </article>
+        </section>
+        
+        
+        
+    </body>
+</html>
